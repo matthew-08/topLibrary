@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400&display=swap');
+        </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="img/book-study-svgrepo-com.svg" alt="">
+            <h1>Library</h1>
+        </div>
+        <h1 id="bookHeader">Book Info:</h1>
+        <form action="" id="input-form">
+            <div class="input-block" id = "book-titlee">
+                <label for="book-title"></label>
+                <input type="text" id="book-title" name="booktitle" required>
+                <span class="placeholder">Book title</span>
+            </div>
+            <div class="input-block">
+                <label for="book-author"></label>
+                <input type="text" id="book-author" name="bookauthor" required>
+                <span class="placeholder">Author</span>
+            </div>
+            <div class="input-block">
+                <label for="book-pages"></label>
+                <input type="number" id="book-pages" name="bookpages" required>
+                <span class="placeholder">Number of pages</span>
+
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" id="checkbox" name="checkbox">
+                <label for="checkbox">I have completed this book already</label>
+            </div>
+        </form>
+        <button type="submit" form="input-form">Add Book</button>
+    </div>
+    <div class="main">
+        <div class="main-inner">
+            <div class="library-info">
+                <p>Books Read: <span class="books-read">0</span></p>
+                <p>Books Unread: <span class="books-unread">0</span></p>
+                <p>Total: <span class="total-books">0</span></p>
+            </div>
+            <table class="books-list">
+                <thead>
+                    <tr>
+                        <td>Title</td>
+                        <td>Author</td>
+                        <td>Pages</td>
+                        <td>Status</td>
+                        <td>Remove</td>
+                    </tr>
+                </thead>
+                <tbody id="books-list-body">
+                </tbody>
+                <tr class="book-info">
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+<script src="java.js"></script>
+</html>
