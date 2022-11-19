@@ -26,9 +26,8 @@ function getBookData(form) {
     let author = object.bookauthor
     let pages = object.bookpages;
     let readStatus = object.checkbox;
-
-
-    let book = new bookData(title, author, pages, readStatus    )
+    
+    let book = new bookData(title, author, pages, readStatus)
 
 
     myLibrary.push(book);
@@ -37,11 +36,16 @@ function getBookData(form) {
 }
 
 
-function bookData(title, author, numberOfPages, readStatus) {
-    this.title = title;
-    this.author = author;
-    this.numberOfPages = numberOfPages
-    this.readStatus = readStatus;
+class bookData {
+    constructor(title, author, pages, readStatus) {
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.readStatus = readStatus
+    }
+    changePageAmount(val) {
+        this.pages = val
+    }
 }
 
 let myLibrary = [ ]
@@ -64,6 +68,9 @@ function showBookOnScreen(book){
                 data.classList.add("readStatus")
                 readStatus.push(data);
             }
+            if (i == "pages") {
+                data.classList.add("pages")
+            }
             data.textContent = book[i];
             row.appendChild(data);
         }
@@ -78,6 +85,16 @@ function showBookOnScreen(book){
 
         document.getElementById("input-form").reset();
         readStatus.forEach(e => e.addEventListener("click", resetReadStatus));
+
+        (function () {
+            function updateRead() {
+                console.log(document.getElementById("cRead").style)
+            }
+            
+            let pages = document.querySelectorAll(".pages");
+            console.log(pages);
+            pages.forEach(td => td.addEventListener("click", updateRead))
+        })()
 }
 
 
